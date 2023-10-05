@@ -14,12 +14,6 @@ def load_system_asset_list(file):
         asset_list = list(assets.keys())
         return asset_list
 
-if 'mapping_dict' not in st.session_state:
-    st.session_state['mapping_dict'] = {}
-
-if 'updated_mapping_dict' not in st.session_state:
-    st.session_state['updated_mapping_dict'] = st.session_state['mapping_dict']
-
 
 def ChangeButtonColour(widget_label, font_color, background_color='transparent'):
     htmlstr = f"""
@@ -54,38 +48,42 @@ def mapping():
     case_ref = db.collection("cases").document(selected_case)
     case = case_ref.get()
 
-
+    if 'mapping_dict' not in st.session_state:
+        st.session_state['mapping_dict'] = ""
+        
     st.session_state['mapping_dict'] = case.to_dict()
+    mapping_dict = st.session_state['mapping_dict']
+    
+    if 'updated_mapping_dict' not in st.session_state:
+        st.session_state['updated_mapping_dict'] = st.session_state['mapping_dict']
 
-    if 'mapping_dict' in st.session_state:
-        mapping_dict = st.session_state['mapping_dict']
 
-        st.divider()  
-        updated_mapping_dict = {}
-        for key, value in mapping_dict.items():
-            case_asset_colum, system_asset_column, delete_column = st.columns([2, 3, 1])
-            with case_asset_colum:
-                new_name = st.text_input("Asset name", key)
-            with system_asset_column:
-                new_selection = st.multiselect("System asset", asset_list, key = f"{key}_multiselect", default=value)
-            
-            updated_mapping_dict[new_name] = new_selection
-            with delete_column:
-                delete = st.button(f'Delete', key=f'{key}-b4')
-                if delete:
-                    st.session_state['updated_mapping_dict'].pop(new_name)
-                    mapping_ref = db.collection("cases").document(selected_case)
-                    mapping_ref.set(st.session_state['updated_mapping_dict'])
-                    st.session_state['mapping_dict'] = st.session_state['updated_mapping_dict']
-                    st.success("Mapping deleted")
-                    st.rerun()
-                ChangeButtonColour(f'Delete', 'white', 'red')
-            #Create updated mapping dict
+    st.divider()  
+    updated_mapping_dict = {}
+    for key, value in mapping_dict.items():
+        case_asset_colum, system_asset_column, delete_column = st.columns([2, 3, 1])
+        with case_asset_colum:
+            new_name = st.text_input("Asset name", key)
+        with system_asset_column:
+            new_selection = st.multiselect("System asset", asset_list, key = f"{key}_multiselect", default=value)
+        
+        updated_mapping_dict[new_name] = new_selection
+        with delete_column:
+            delete = st.button(f'Delete', key=f'{key}-b4')
+            if delete:
+                st.session_state['updated_mapping_dict'].pop(new_name)
+                st.session_state['mapping_dict'].pop(new_name)
+                # mapping_ref = db.collection("cases").document(selected_case)
+                # mapping_ref.set(st.session_state['updated_mapping_dict'])
+                st.success("Mapping deleted")
+                st.rerun()
+            ChangeButtonColour(f'Delete', 'white', 'red')
+        #Create updated mapping dict
 
-            st.session_state['updated_mapping_dict']= updated_mapping_dict
+        st.session_state['updated_mapping_dict']= updated_mapping_dict
 
-            st.divider()    
-
+        st.divider()    
+        
     add_button = st.button("Add mapping", use_container_width=True, type="secondary")
 
     if add_button:

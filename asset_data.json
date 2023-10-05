@@ -473,5 +473,73 @@
       }
     ]
 
-  }
+  },
+  "Controller": {
+      "AssetID": "IND.2.2",
+      "AssetName": "Programmable Logic Controller (PLC)",
+      "Description": "A programmable logic controller (PLC) is an ICS component that performs control tasks in the context of operational technology (OT). It has various forms and functionalities, including digital inputs and outputs, a real-time operating system, and interfaces for Ethernet or fieldbuses.",
+      "Objective": "The aim of this module is to protect all types of programmable logic controllers regardless of their manufacturer, type, purpose, and place of use.",
+      "Scoping": "Module IND.2.2 Programmable Logic Controller (PLC) must be applied once to every PLC component. It is to be used to protect all types of programmable logic controllers and devices with similar functions.",
+      "Modelling": "This module supplements module IND.2.1 General ICS Components and does not contain organisational requirements for safeguarding an ICS component. Functional security is not addressed; module IND.2.7 Safety Instrumented Systems must be applied in this regard.",
+      "Threats": [
+        {
+          "ThreatID": "2.1",
+          "ThreatName": "Incomplete Documentation",
+          "Description": "Programmable logic controllers are often documented incompletely, which means not all their functions are known. In particular, the information on services, protocols, communication ports, and authorisation management is often incomplete.",
+          "Implications": "This complicates the analysis of threats because interfaces, functions, and security-relevant mechanisms can be overlooked. Potential dangers may not be considered as a result. Furthermore, if new vulnerabilities are not documented, an organisation may only be able to respond to them to a limited extent (if at all).",
+          "ImpactLevel": "High",
+          "AttackVectors": ["Documentation", "Configuration"],
+          "AffectedComponents": ["PLC"]
+        }
+      ],
+      "Responsibilities": {
+        "OverallResponsibility": "ICS Information Security Officer",
+        "FurtherResponsibilities": ["OT Operations (Operational Technology, OT)"]
+      },
+      "Requirements": [
+        {
+          "RequirementID": "IND.2.2.A1",
+          "RequirementName": "Extended System Documentation for Programmable Logic Controllers",
+          "Description": "Control programs and configurations should always be backed up before they are changed. Changes in configurations and the replacement of components should be fully documented.",
+          "ResponsibleRoles": ["OT Operations"],
+          "Priority": "Standard",
+          "ActionType": ["Documentation", "Backup"],
+          "AffectedComponents": ["Control Programs", "Configurations"],
+          "SecurityControlType": "Technical"
+        },
+        {
+          "RequirementID": "IND.2.2.A3",
+          "RequirementName": "Time Synchronisation",
+          "Description": "The system time should be set automatically through centrally automated time synchronisation.",
+          "ResponsibleRoles": ["OT Operations"],
+          "Priority": "Standard",
+          "ActionType": ["Time Synchronization"],
+          "AffectedComponents": ["System Time"],
+          "SecurityControlType": "Technical"
+        }
+      ],
+      "ElementaryThreats": [
+        {
+          "ThreatID": "G 0.21",
+          "ThreatName": "Manipulation of Hardware or Software",
+          "SecurityObjectives": ["Integrity"]
+        },
+        {
+          "ThreatID": "G 0.22",
+          "ThreatName": "Manipulation of Information",
+          "SecurityObjectives": ["Integrity"]
+        },
+        {
+          "ThreatID": "G 0.23",
+          "ThreatName": "Unauthorised Access to IT Systems",
+          "SecurityObjectives": ["Confidentiality", "Integrity"]
+        },
+        {
+          "ThreatID": "G 0.41",
+          "ThreatName": "Sabotage",
+          "SecurityObjectives": ["Availability"]
+        }
+      ]      
+    }
+
 }

@@ -10,7 +10,7 @@ def display_pdf(file):
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-def digitilize_information():
+def digitize_information():
     st.info(
         """In this step, the available information is digitilized and parsed into the specified metamodel. 
         
