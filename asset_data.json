@@ -1,0 +1,477 @@
+{
+  "ICS Component": {
+    "AssetID": "IND.2.1",
+    "AssetName": "General ICS Components",
+    "Description": "An ICS component is an electronic component that controls or regulates a machine or system. It is part of an industrial control system (ICS) or operational technology (OT).",
+    "Objective": "The objective of this module is to secure all kinds of ICS components regardless of their manufacturer, type, purpose, and application site.",
+    "Scoping": "Module IND.2.1 General ICS Components must be applied to each ICS component used in the information domain under consideration.",
+    "Modelling": "The requirements have been drawn up for a generic ICS component. Additional modules are available for specific ICS components such as sensors and actuators or machines.",
+    "Threats": [
+      {
+        "ThreatID": "2.1",
+        "ThreatName": "Insecure System Configuration",
+        "Description": "The default configuration of ICS components is typically designed to ensure that the components work properly and can be put into operation easily.",
+        "Implications": "For attackers, it is easy to take over and manipulate such ICS components.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Remote Access", "Local Access"],
+        "AffectedComponents": ["PLC", "Sensors"]
+      },
+      {
+        "ThreatID": "2.2",
+        "ThreatName": "Insufficient User and Authorisation Management",
+        "Description": "Some ICS components have their own user and authorisation management system.",
+        "Implications": "The authorisations of employees who have left the company may not be deleted.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Social Engineering", "Insider Threat"],
+        "AffectedComponents": ["User Management System"]
+      },
+      {
+        "ThreatID": "2.3",
+        "ThreatName": "Insufficient Logging",
+        "Description": "Logging related to ICS components is often limited to process-relevant events. Data relevant to information security is often not recorded.",
+        "Implications": "Security incidents can only be detected with difficulty and cannot be reconstructed after the fact.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Insider Threat", "Remote Access"],
+        "AffectedComponents": ["Logging System"]
+      },
+      {
+        "ThreatID": "2.4",
+        "ThreatName": "Manipulation and Sabotage of an ICS Component",
+        "Description": "The manifold interfaces of ICS components put IT systems, software, and transmitted information at an increased risk of manipulation.",
+        "Implications": "Manipulated measurements may cause ICS components or the personnel operating them to make improper decisions.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Physical Access", "Remote Access"],
+        "AffectedComponents": ["PLC", "Sensors", "Actuators"]
+      },
+      {
+        "ThreatID": "2.5",
+        "ThreatName": "Use of Insecure Protocols",
+        "Description": "Some of the protocols used within the framework of industrial control systems only offer limited security mechanisms.",
+        "Implications": "An attacker with access to the transmission medium may read out and modify the communication contents or implement control commands.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Network Sniffing", "Man-in-the-Middle"],
+        "AffectedComponents": ["Communication Protocols"]
+      },
+      {
+        "ThreatID": "2.6",
+        "ThreatName": "Denial-of-Service (DoS) Attacks",
+        "Description": "An attacker may impair operations of ICS components using DoS attacks.",
+        "Implications": "For processes that run under real-time conditions, even a short disruption can lead to a loss of information or control.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Network Flooding", "Resource Exhaustion"],
+        "AffectedComponents": ["Network Infrastructure", "PLC"]
+      },
+      {
+        "ThreatID": "2.7",
+        "ThreatName": "Malware",
+        "Description": "The threat of malware is also increasingly severe for industrial control systems.",
+        "Implications": "Mobile end devices such as service laptops or removable media used for programming can introduce malware into isolated environments.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Removable Media", "Network Infiltration"],
+        "AffectedComponents": ["User Devices", "Network Infrastructure"]
+      },
+      {
+        "ThreatID": "2.8",
+        "ThreatName": "Interception of Information/Espionage",
+        "Description": "ICS components frequently contain detailed information on the processes they control or monitor.",
+        "Implications": "Attackers could obtain trade secrets such as recipes, processes, or other intellectual property.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Network Sniffing", "Insider Threat"],
+        "AffectedComponents": ["Data Storage", "Communication Protocols"]
+      },
+      {
+        "ThreatID": "2.9",
+        "ThreatName": "Manipulated Firmware",
+        "Description": "The operating system (firmware) of ICS components can be changed.",
+        "Implications": "An attacker may modify or falsify processes and procedures.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Supply Chain", "Local Data Interface"],
+        "AffectedComponents": ["Firmware", "Software Update Mechanisms"]
+      }
+    ],
+    "Responsibilities": {
+      "OverallResponsibility": "ICS Information Security Officer",
+      "FurtherResponsibilities": [
+        "Employee",
+        "Planner",
+        "Maintenance Personnel",
+        "OT Operations (Operational Technology, OT)"
+      ]
+    },
+    "Requirements": [
+      {
+        "RequirementID": "IND.2.1.A1",
+        "RequirementName": "Restriction of Access to Configuration and Maintenance Interfaces",
+        "Description": "Passwords set by default or by the manufacturer must be changed. These changes must be documented. Passwords must be stored securely.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Basis",
+        "ActionType": ["Documentation", "Configuration"],
+        "AffectedComponents": ["Authentication System"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A2",
+        "RequirementName": "Using Secure Transmission Protocols for Configuration and Maintenance",
+        "Description": "Secure protocols must be implemented for configuring and maintaining ICS components. Information must be protected during transmission.",
+        "ResponsibleRoles": ["Maintenance Personnel", "OT Operations"],
+        "Priority": "Basis",
+        "ActionType": ["Configuration"],
+        "AffectedComponents": ["Communication Protocols"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A3",
+        "RequirementName": "ELIMINATED",
+        "Description": "This requirement has been eliminated.",
+        "ResponsibleRoles": [],
+        "Priority": "Basis",
+        "ActionType": ["None"],
+        "AffectedComponents": ["None"],
+        "SecurityControlType": "None"
+      },
+      {
+        "RequirementID": "IND.2.1.A4",
+        "RequirementName": "Disabling or Uninstalling Unused Services, Functions, and Interfaces",
+        "Description": "All services, features, and interfaces of ICS components that are not being used must be disabled or uninstalled.",
+        "ResponsibleRoles": ["Maintenance Personnel", "OT Operations"],
+        "Priority": "Basis",
+        "ActionType": ["Configuration"],
+        "AffectedComponents": ["Services", "Functions", "Interfaces"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A5",
+        "RequirementName": "ELIMINATED",
+        "Description": "This requirement has been eliminated.",
+        "ResponsibleRoles": [],
+        "Priority": "Basis",
+        "ActionType": ["None"],
+        "AffectedComponents": ["None"],
+        "SecurityControlType": "None"
+      },
+      {
+        "RequirementID": "IND.2.1.A6",
+        "RequirementName": "Network Segmentation",
+        "Description": "ICS components must be separated from office IT. If ICS components depend on other components in the network in question, this should be documented sufficiently.",
+        "ResponsibleRoles": ["OT Operations", "Planner"],
+        "Priority": "Basis",
+        "ActionType": ["Configuration", "Documentation"],
+        "AffectedComponents": ["Network Infrastructure"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A7",
+        "RequirementName": "Creating Backups",
+        "Description": "Backups must be created prior to each system change in an ICS component.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Standard",
+        "ActionType": ["Backup"],
+        "AffectedComponents": ["Data Storage"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A8",
+        "RequirementName": "Protection Against Malware",
+        "Description": "ICS components should be protected against malware by suitable mechanisms. If an anti-virus protection program is used, the program and the virus signatures should always be up to date.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Standard",
+        "ActionType": ["Configuration", "Monitoring"],
+        "AffectedComponents": ["Anti-Malware Software"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A11",
+        "RequirementName": "Maintenance of ICS Components",
+        "Description": "The latest approved security updates should always be installed when maintaining an ICS component.",
+        "ResponsibleRoles": [
+          "Employee",
+          "OT Operations",
+          "Maintenance Personnel"
+        ],
+        "Priority": "Standard",
+        "ActionType": ["Update", "Maintenance"],
+        "AffectedComponents": ["Operating System", "Security Patches"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A13",
+        "RequirementName": "Appropriate Commissioning of ICS Components",
+        "Description": "Before they are commissioned, ICS components should correspond to the latest internally approved firmware, software, and patch status.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Standard",
+        "ActionType": ["Commissioning"],
+        "AffectedComponents": ["Firmware", "Software"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A16",
+        "RequirementName": "Protecting External Interfaces",
+        "Description": "Externally accessible interfaces should be protected against misuse.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Standard",
+        "ActionType": ["Protection"],
+        "AffectedComponents": ["External Interfaces"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A17",
+        "RequirementName": "Use of Secure Protocols for the Transmission of Measurement and Control Data",
+        "Description": "Measurement or control data should be protected against unauthorized access or changes during transmission. Whether this is necessary or feasible should be checked in situations involving applications with real-time requirements.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "Standard",
+        "ActionType": ["Protection", "Assessment"],
+        "AffectedComponents": [
+          "Transmission Protocols",
+          "Measurement Data",
+          "Control Data"
+        ],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A18",
+        "RequirementName": "Communication in the Event of Incidents",
+        "Description": "There should be alternative and independent communication options that an organization can use to maintain its ability to function in the event of malfunctions.",
+        "ResponsibleRoles": ["OT Operations", "Employee"],
+        "Priority": "Special",
+        "ActionType": ["Communication", "Contingency Planning"],
+        "AffectedComponents": ["Communication Systems"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A19",
+        "RequirementName": "Security Tests",
+        "Description": "Regular security tests should be carried out to check whether the technical security safeguards in place are still implemented efficiently.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "High",
+        "ActionType": ["Testing", "Documentation"],
+        "AffectedComponents": ["Security Safeguards"],
+        "SecurityControlType": "Technical"
+      },
+      {
+        "RequirementID": "IND.2.1.A20",
+        "RequirementName": "Trustworthy Code",
+        "Description": "Firmware updates or new control programs should only be installed after their integrity has been checked. They should only come from trusted sources.",
+        "ResponsibleRoles": ["OT Operations"],
+        "Priority": "High",
+        "ActionType": ["Verification", "Installation"],
+        "AffectedComponents": ["Firmware", "Control Programs"],
+        "SecurityControlType": "Technical"
+      }
+    ],
+    "ElementaryThreats": [
+      {
+        "ThreatID": "G 0.2",
+        "ThreatName": "Unfavourable Climatic Conditions",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.4",
+        "ThreatName": "Pollution, Dust, Corrosion",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.8",
+        "ThreatName": "Failure or Disruption of the Power Supply",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.9",
+        "ThreatName": "Failure or Disruption of Communication Networks",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.10",
+        "ThreatName": "Failure or Disruption of Supply Networks",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.12",
+        "ThreatName": "Electromagnetic Interference",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.14",
+        "ThreatName": "Interception of Information / Espionage",
+        "SecurityObjectives": ["Confidentiality"]
+      },
+      {
+        "ThreatID": "G 0.15",
+        "ThreatName": "Eavesdropping",
+        "SecurityObjectives": ["Confidentiality"]
+      },
+      {
+        "ThreatID": "G 0.19",
+        "ThreatName": "Disclosure of Sensitive Information",
+        "SecurityObjectives": ["Confidentiality"]
+      },
+      {
+        "ThreatID": "G 0.21",
+        "ThreatName": "Manipulation of Hardware or Software",
+        "SecurityObjectives": ["Integrity"]
+      },
+      {
+        "ThreatID": "G 0.22",
+        "ThreatName": "Manipulation of Information",
+        "SecurityObjectives": ["Integrity"]
+      },
+      {
+        "ThreatID": "G 0.23",
+        "ThreatName": "Unauthorised Access to IT Systems",
+        "SecurityObjectives": ["Confidentiality", "Integrity"]
+      },
+      {
+        "ThreatID": "G 0.25",
+        "ThreatName": "Failure of Devices or Systems",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.28",
+        "ThreatName": "Software Vulnerabilities or Errors",
+        "SecurityObjectives": ["Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.30",
+        "ThreatName": "Unauthorised Use or Administration of Devices and Systems",
+        "SecurityObjectives": ["Confidentiality", "Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.31",
+        "ThreatName": "Incorrect Use or Administration of Devices and Systems",
+        "SecurityObjectives": ["Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.32",
+        "ThreatName": "Misuse of Authorisation",
+        "SecurityObjectives": ["Confidentiality", "Integrity"]
+      },
+      {
+        "ThreatID": "G 0.37",
+        "ThreatName": "Repudiation of Actions",
+        "SecurityObjectives": ["Integrity"]
+      },
+      {
+        "ThreatID": "G 0.39",
+        "ThreatName": "Malware",
+        "SecurityObjectives": ["Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.40",
+        "ThreatName": "Denial of Service",
+        "SecurityObjectives": ["Availability"]
+      },
+      {
+        "ThreatID": "G 0.41",
+        "ThreatName": "Sabotage",
+        "SecurityObjectives": ["Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.43",
+        "ThreatName": "Attack with Specially Crafted Messages",
+        "SecurityObjectives": ["Integrity", "Availability"]
+      },
+      {
+        "ThreatID": "G 0.45",
+        "ThreatName": "Data Loss",
+        "SecurityObjectives": ["Confidentiality", "Integrity"]
+      },
+      {
+        "ThreatID": "G 0.46",
+        "ThreatName": "Loss of Integrity of Sensitive Information",
+        "SecurityObjectives": ["Integrity"]
+      }
+    ]
+  },
+  "Sensor": {
+    "AssetID": "IND.2.2",
+    "AssetName": "Sensors",
+    "Description": "Sensors are used to measure physical quantities such as temperature, pressure, or flow rate.",
+    "Objective": "The objective of this module is to secure sensors.",
+    "Scoping": "Module IND.2.2 Sensors must be applied to each sensor used in the information domain under consideration.",
+    "Modelling": "The requirements have been drawn up for a generic sensor. Additional modules are available for specific sensors such as temperature sensors or pressure sensors.",
+    "Threats": [
+      {
+        "ThreatID": "2.10",
+        "ThreatName": "Insecure System Configuration",
+        "Description": "The default configuration of sensors is typically designed to ensure that the sensors work properly and can be put into operation easily.",
+        "Implications": "For attackers, it is easy to take over and manipulate such sensors.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Remote Access", "Local Access"],
+        "AffectedComponents": ["Sensor"]
+      },
+      {
+        "ThreatID": "2.11",
+        "ThreatName": "Insufficient User and Authorisation Management",
+        "Description": "Some sensors have their own user and authorisation management system.",
+        "Implications": "The authorisations of employees who have left the company may not be deleted.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Social Engineering", "Insider Threat"],
+        "AffectedComponents": ["User Management System"]
+      },
+      {
+        "ThreatID": "2.12",
+        "ThreatName": "Insufficient Logging",
+        "Description": "Logging related to sensors is often limited to process-relevant events. Data relevant to information security is often not recorded.",
+        "Implications": "Security incidents can only be detected with difficulty and cannot be reconstructed after the fact.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Insider Threat", "Remote Access"],
+        "AffectedComponents": ["Logging System"]
+      },
+      {
+        "ThreatID": "2.13",
+        "ThreatName": "Manipulation and Sabotage of a Sensor",
+        "Description": "The manifold interfaces of sensors put IT systems, software, and transmitted information at an increased risk of manipulation.",
+        "Implications": "Manipulated measurements may cause sensors or the personnel operating them to make improper decisions.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Physical Access", "Remote Access"],
+        "AffectedComponents": ["Sensor"]
+      }
+    ]
+  },
+  "Machine": {
+    "AssetID": "IND.2.3",
+    "AssetName": "Machines",
+    "Description": "Machines are used to manufacture products or to process materials.",
+    "Objective": "The objective of this module is to secure machines.",
+    "Scoping": "Module IND.2.3 Machines must be applied to each machine used in the information domain under consideration.",
+    "Modelling": "The requirements have been drawn up for a generic machine. Additional modules are available for specific machines such as milling machines or presses.",
+    "Threats": [
+      {
+        "ThreatID": "2.14",
+        "ThreatName": "Insecure System Configuration",
+        "Description": "The default configuration of machines is typically designed to ensure that the machines work properly and can be put into operation easily.",
+        "Implications": "For attackers, it is easy to take over and manipulate such machines.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Remote Access", "Local Access"],
+        "AffectedComponents": ["Machine"]
+      },
+      {
+        "ThreatID": "2.15",
+        "ThreatName": "Insufficient User and Authorisation Management",
+        "Description": "Some machines have their own user and authorisation management system.",
+        "Implications": "The authorisations of employees who have left the company may not be deleted.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Social Engineering", "Insider Threat"],
+        "AffectedComponents": ["User Management System"]
+      },
+      {
+        "ThreatID": "2.16",
+        "ThreatName": "Insufficient Logging",
+        "Description": "Logging related to machines is often limited to process-relevant events. Data relevant to information security is often not recorded.",
+        "Implications": "Security incidents can only be detected with difficulty and cannot be reconstructed after the fact.",
+        "ImpactLevel": "Medium",
+        "AttackVectors": ["Insider Threat", "Remote Access"],
+        "AffectedComponents": ["Logging System"]
+      },
+      {
+        "ThreatID": "2.17",
+        "ThreatName": "Manipulation and Sabotage of a Machine",
+        "Description": "The manifold interfaces of machines put IT systems, software, and transmitted information at an increased risk of manipulation.",
+        "Implications": "Manipulated measurements may cause machines or the personnel operating them to make improper decisions.",
+        "ImpactLevel": "High",
+        "AttackVectors": ["Physical Access", "Remote Access"],
+        "AffectedComponents": ["Machine"]
+      }
+    ]
+
+  }
+}

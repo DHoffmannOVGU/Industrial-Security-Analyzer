@@ -1,0 +1,9 @@
+{
+    "RTC Clock": [
+        "Machine"
+    ],
+    "GPS Sensor" : [
+        "Sensor",
+        "ICS Component"
+    ]
+}

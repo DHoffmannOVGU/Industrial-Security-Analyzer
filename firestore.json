@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "industrial-security-explorer",
+  "private_key_id": "d88f3b7ce0272c68d44b1a3b84d224b3e4afca66",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCmlTl3aV2/kY2X\nBZNo9m0Z0qkvAL8oE8w5rS6pKlZ0h6dUSdsuvGH7wYxbPV7RnBv2Kcv3Vxa19GfX\nFRcUr+H6ExHgxFv6yPfzuMw3e9rotuZ3Cb3t9Wt9/KEnqjUckHs2W9QhDce/21nx\nAZKvZl2wc8JmcHUfAu4KF/2HfPL7K7mDPvmO4wzvLD33GXt7C8PMS+oBBimKLsH7\nZFdxx6RoE4KVyGahwYEk7dCTwu85gW9KARGJNuj7zP6NObtla5w567QEya740jRx\n8ojDyj8k9bT0nJ2qD2M7Mgbud/aFR3Ploa1IN9XZd/6W0aNSEUAYUb0D27uDXzu0\nizdbvI21AgMBAAECggEABEn0mtB0Vh78kut/1MSoy8YSuQpp4Ybw9niGVQX+soKz\nmjCfRgrE8w2+prK5Iuhusoh3nzyiHGPYhenIba3sQYYFgHtNwEfgVRQS80gVu3F0\nvufZ+KsdmLbNEg+zIl3N7k5a8ybprP+MHJplGRhSR91odJQR+o8WwIfG7UVtnsMs\nuRXRSrZ1g1Khl2S9D+oIwtw6spBiuDnCYBxieBFcAGqKqES4kD2EIdYd+syijSpI\nqjxuOX5T2XCmusnzR5borajPGvY0Z9vGpeZJ7FO8FC3l4pfyZJyYnYyayH5GvHaA\nsxvr30Q0yLMv72iPkRZ4n1Rw156h7TOXsYKo3PLtwQKBgQDozXYnc+xUm5p+TjBf\ntkWjL9gBt9/ejqZcII6I4QLPXxINjiz3FwiEyC6dlBAsNApYfkLiMFsqFpHtPCMW\nd9tWPOOvAZZgeOj1WaaSebzFlhHumdNZJNOuZ6uB0ZLloSous9My0o5BzRwICcww\nVLbOrP4dL7s3M5bjFqlqWBeyrQKBgQC3LpJY2irGnwCRIQWP/L5WfL64oHnysNCG\nV6KKBWp/md19GYDPLl1Ki4ogJdaQlHWy4tcZG0cpPCPhJ7fCVIBaVWjNHRjnBJY6\n5WEg4R1+1K8Rbm8ZJTJqw/dZJnGspQOBB9aFtXk5FPYDTlY3xYPbC68ItSeqeAKs\nMrcPhsKwKQKBgQCL4iET1bj0ocb0C+FPMYOoaXAeoDC5VvepNbrPjnyUxChh0sM7\n+TAaMPqpnrUVCnQI9l0T8kBlCsjGRrNCpeQ6bj3VA1wrPZulCShorRN7mg/OUcnH\nr7QuAIbya04cAnoJM+48hH4MFcW5IsH5bH2ntBTAztRsd+g7LXvAtYwPxQKBgQCi\nB1a5sxhdIa2NsajK6OOvep30jzXu3klEW2XRMeM2xPGuQw21tKweUPk3YGC++CJ3\nvcBHW+KA7cpK0Sfwg3AY9y1BKPiq91qu89ALFjRRyGymPYmVs1o6J+a0+5VXAYrs\n6fLtyExWmlzVJciLgnEUIuyLBjn0xjyO9jkIScoRqQKBgQCgPVeHdXeKKhlAePLP\nc+trA5Ru9GBpdKIZQVF/IW0ZMQ8Y/+VqaPMwiZSCtuH+DMJn4NsWEFDqv6eBzvvl\nhXYNjW3LGb09yHAr/qy8KvAcnoOqEaZes7DyERp99DX0CSiwFiuFHa0aW1LOrwTj\nkYpzLIwsn5zdG9N9xq6rKp4gyg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-p854c@industrial-security-explorer.iam.gserviceaccount.com",
+  "client_id": "105704507812084034628",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-p854c%40industrial-security-explorer.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
